@@ -2,7 +2,7 @@
 
 ## 1. Summary
 ### Goal
-The goal of this project is take the point cloud from the PR2's camera as input, and then through a perception pipeline and machine learning process, recognize the objects and output the object name and positions for further handling actions.
+The goal of this project is to take the point cloud from the PR2's camera as input, and then through a perception pipeline and machine learning process, recognize the objects and output the object name and positions for further handling actions.
 ### Output
 
 In `./yaml` folder, `output_1.yaml`, `output_2.yaml`, abd `output_2.yaml`, for objects in `test1.world`, `test2.world`, and `test3.world` respectively, in the format of the following
@@ -39,12 +39,15 @@ In `./yaml` folder, `output_1.yaml`, `output_2.yaml`, abd `output_2.yaml`, for o
 -   100% (8/8) objects recognized in test3.world
 
 **test1**
+
 ![](https://i.imgur.com/Dj19ckg.png)
 
 **test2**
+
 ![](https://i.imgur.com/EZO1B8y.png)
 
 **test3**
+
 ![](https://i.imgur.com/oIk1Myv.png)
 
 ## 2. Perception Pipeline
@@ -67,9 +70,11 @@ There are noises in the images taken by camera, apply StatisticalOutlierRemoval 
     pcl_data = outlier_filter.filter()
 ```
 **Original image**
+
 ![](https://i.imgur.com/HV3jbPv.png)
 
 **Result**
+
 ![](https://i.imgur.com/Ua0LvH4.png)
 
 ### Tansform image into voxel grid
@@ -80,6 +85,7 @@ There are noises in the images taken by camera, apply StatisticalOutlierRemoval 
     pcl_data = vox.filter()
 ```
 **Result**
+
 ![](https://i.imgur.com/H5aTuCH.png)
 
 * ### PassThrough filter
@@ -106,8 +112,10 @@ We have to apply the filter along two axis.
     pcl_data = passthrough.filter()
 ```
 **Before pass-through filter**
+
 ![](https://i.imgur.com/cGPH740.png)
 **After pass-through filter**
+
 ![](https://i.imgur.com/VQH758J.png)
 
 ### RANSAC Plane Segmentation
