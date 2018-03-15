@@ -189,9 +189,9 @@ def compute_color_histograms(cloud, using_hsv=False):
         channel_3_vals.append(color[2])
     
     # TODO: Compute histograms
-    h_hist = np.histogram(channel_1_vals, bins=32, range=(0,256))
-    s_hist = np.histogram(channel_2_vals, bins=32, range=(0,256))
-    v_hist = np.histogram(channel_3_vals, bins=32, range=(0,256))
+    h_hist = np.histogram(channel_1_vals, bins=32, range=(-1, 1))
+    s_hist = np.histogram(channel_2_vals, bins=32, range=(-1, 1))
+    v_hist = np.histogram(channel_3_vals, bins=32, range=(-1, 1))
 
 
     # TODO: Concatenate and normalize the histograms
